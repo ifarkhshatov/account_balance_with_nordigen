@@ -10,7 +10,7 @@ I'd better recommend you follow the instruction from their [documentation](https
 
 1. Register or Login to [Nordigen](https://auth.nordigen.com/login?state=hKFo2SBJR1BwN2E5MzRrVGk4MEhoc3dPbmpLS3VhYW9EU1RCeaFupWxvZ2luo3RpZNkgcnR2UGxTUUM2dEtnQU5kMHFTOUVGTEhWN0tEMmwzRXmjY2lk2SBDamdoTDczVkNpQmh0b1RGdk1xNEhGREpvMmhVWXRZdA&client=CjghL73VCiBhtoTFvMq4HFDJo2hUYtYt&protocol=oauth2&redirect_uri=https%3A%2F%2Fob.nordigen.com%2Fcomplete%2Fauth0%2F&response_type=code&scope=openid%20profile%20email) (I used Google Auth)
 2. Go to **Project --> User secret** there generate ``$SECRET\_ID and $SECRET\_KEY`` by pressing "Create new" 
-![Generate User Secrets](./md/screen1.png)
+![Generate User Secrets](./md/screen1.png)   
 Save it as JSON and copy your key:
 ``{
 	"secret_id": "SECRET_ID",
@@ -104,10 +104,10 @@ Auto-refreshing stale OAuth token.
    <chr>                                                 <drv_id>                                     <list>           
  1 nordigen_test                                         1TqBPf4b-gbAIhxQ3S9JPzv4 <named list [35]>
  ```   
-1. Copy the id and paste it to the function which will append data from Nordigen API to Google sheet `write_sheet`(ss = "SheetID", booked_data, sheet = 2)`.
+1. Copy the id and paste it to the function which will append data from Nordigen API to Google sheet ``write_sheet(ss = "SheetID", booked_data, sheet = 2)``.
 2. As the result on the second page of the sheet **nordigen_test** we have data straight goes from **Our bank account** to **Google Sheet**:
 ![Data in google sheet](md/screen7.png).
-3. If you then want to append new data to the sheet then use the following code ``sheet_append("1SheetID", booked_data  , sheet = 2)`` and that's it. 
-4. Basically, you set up this script on cron task (do not forget to change the agreement from [Step 5](#nordigen-api-connection) ) and it will pull once per day or so data with **Nordigen API** from your bank account and update google Sheets.
-5. There area for the playground, such as using [stringr](https://stringr.tidyverse.org/) package to extract MCC and shop name from the data, customize and manipulate and create your own best account balance dashboard.
-6. Of course, it can be used in Shiny Apps or application deployemnt.
+1. If you then want to append new data to the sheet then use the following code ``sheet_append("1SheetID", booked_data  , sheet = 2)`` and that's it. 
+2. Basically, you set up this script on cron task (do not forget to change the agreement from [Step 5](#nordigen-api-connection) ) and it will pull once per day or so data with **Nordigen API** from your bank account and update google Sheets.
+3. There area for the playground, such as using [stringr](https://stringr.tidyverse.org/) package to extract MCC and shop name from the data, customize and manipulate and create your own best account balance dashboard.
+4. Of course, it can be used in Shiny Apps or application deployemnt.
